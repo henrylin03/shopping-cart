@@ -1,0 +1,87 @@
+/* common styling for composition */
+.textAndIcon {
+  color: var(--primary-colour);
+  font-size: .9rem;
+}
+
+.inactiveLink {
+  composes: textAndIcon;
+  font-weight: 400;
+}
+
+.activeLink {
+  composes: textAndIcon;
+  color: var(--secondary-colour);
+}
+
+/* specific class styling */
+.header {
+  width: 80dvw;
+  margin: 0 auto;
+  padding: 20px 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.branding {
+  composes: inactiveLink;
+  font-family: "Michroma", sans-serif;
+  font-size: 1.75rem;
+  font-weight: 400;
+  justify-self: start;
+}
+
+.pageLinks {
+  justify-self: center;
+  align-self: end;
+  display: flex;
+  align-items: center;
+  gap: 48px;
+}
+
+.activePageLink {
+  composes: activeLink;
+  font-weight: 800;
+  text-decoration: underline 2px;
+  text-underline-offset: 8px;
+}
+
+.bagLink,
+.activeBagLink {
+  place-self: end;
+}
+
+.bagButton {
+  composes: textAndIcon;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  background-color: transparent;
+}
+
+.activeBagLink .bagButton {
+  color: var(--secondary-colour);
+}
+
+.bagButton>svg {
+  grid-column: 1 / -1;
+  grid-row: 1 / -1;
+  place-self: end;
+}
+
+.itemCounter {
+  background-color: var(--secondary-colour);
+  color: white;
+  font-size: .6rem;
+  font-family: "Michroma", sans-serif;
+  font-weight: bold;
+  padding: 3px 4px;
+  border-radius: 100%;
+
+  /* placement */
+  grid-column: 1 / -1;
+  grid-row: 1 / -1;
+  justify-self: end;
+  align-self: start;
+  transform: translate(40%, -33%);
+}
